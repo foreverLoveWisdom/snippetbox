@@ -1,3 +1,3 @@
 module github.com/foreverLoveWisdom/snippetbox.git
 
-go 1.23.1
+go 1.22.6
