@@ -17,7 +17,11 @@ func home(w http.ResponseWriter, _ *http.Request) {
 
 func snippetView(w http.ResponseWriter, r *http.Request) {
 	id, err := strconv.Atoi(r.PathValue("id"))
-	if err != nil || id < 1 {
+	if err != nil {
+		http.Error(w, "Invalid snippet ID", http.StatusBadRequest)
+		return
+	}
+	if id < 1 {
 		http.NotFound(w, r)
 		return
 	}
